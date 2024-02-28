@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- daisy ui link -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        .font-style {
+            font-family: "Poppins", sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container mx-auto">
+        <!-- search section -->
+        <section class="my-10 bg-slate-400 p-5 rounded-lg">
+            <h1 class="text-4xl text-black font-medium font-style text-center">Here is your Meal Db. Find your
+                favorite
+                dishes recipe</h1>
+            <div class="text-center my-2">
+                <input type="text " placeholder="Search here"
+                    class="input input-bordered w-full max-w-xs ring-1 ring-rose-500" />
+                <button class="btn text-rose-100 font-bold btn-outline border-0 ring-1 ring-yellow-400">Search</button>
+            </div>
+        </section>
+
+        <!-- search result section -->
+        <section>
+            <div id="meal-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-20">
+
+            </div>
+        </section>
+    </main>
+    <script src="index.js"></script>
+</body>
+
+</html>
