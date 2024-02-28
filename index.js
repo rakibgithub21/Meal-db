@@ -16,7 +16,7 @@ const displayMealBd = (meals) => {
     const mealContainer = document.getElementById('meal-container');
     mealContainer.innerHTML = ``;
     meals.forEach(meal => {
-        console.log(meal);
+        // console.log(meal);
         const div = document.createElement('div');
         div.classList = `card bg-gray-300 shadow-xl p-5 ring `
         div.innerHTML = `
@@ -26,14 +26,14 @@ const displayMealBd = (meals) => {
                         <p class="font-medium text-black">Area: ${meal.strArea}</p>
                         <p class="font-medium text-black">Category: ${meal.strCategory}</p>
                         <div class="card-actions justify-end">
-                            <button class="btn btn-outline btn-secondary">Show Details</button>
+                            <button onclick = "loadMeal(${meal.idMeal})" class="btn btn-outline btn-secondary">Show Details</button>
                         </div>
                     </div>
             `;
         mealContainer.appendChild(div);
 
     });
-    
+
     toggleLoader(false);
 }
 
@@ -63,6 +63,21 @@ const showErrorMessage = (isError) => {
     else {
         errorContainer.classList.add('hidden')
     }
+}
+
+
+
+
+const loadMeal = async (id) => {
+    const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
+    // console.log(url);
+    const res = await fetch(url);
+    const data = await res.json();
+    showMeal(data.meals[0]);
+}
+
+const showMeal = (meal) => {
+    console.log(meal);
 }
 
 // loadMealBd()
