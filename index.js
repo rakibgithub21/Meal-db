@@ -15,11 +15,11 @@ const displayMealBd = (meals) => {
         div.innerHTML = `
         <figure><img class = "border-2 border-purple-500 rounded-full" src="${meal.strMealThumb}" /></figure>
                     <div class="card-body">
-                        <h2 class="card-title text-rose-800">${meal.strMeal}</h2>
-                        <p><span class = "font-semibold text-lime-800">Area:</span> ${meal.strArea}</p>
-                        <p><span class = "font-semibold text-lime-800">Category:</span> ${meal.strCategory}</p>
+                        <h2 class="card-title text-black">${meal.strMeal}</h2>
+                        <p class="font-medium text-black">Area: ${meal.strArea}</p>
+                        <p class="font-medium text-black">Category: ${meal.strCategory}</p>
                         <div class="card-actions justify-end">
-                            <button class="btn btn-primary">Show Details</button>
+                            <button class="btn btn-outline btn-secondary">Show Details</button>
                         </div>
                     </div>
             `;
