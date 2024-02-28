@@ -57,6 +57,22 @@
 
             </div>
         </section>
+
+        <!-- modal  -->
+        <!-- Open the modal using ID.showModal() method -->
+       
+        <dialog id="showDetailsModal" class="modal modal-bottom sm:modal-middle">
+            <div class="modal-box">
+                <h3 id="title" class="font-bold text-lg"></h3>
+                <p id="description" class="py-2">Press ESC key or click the button below to close</p>
+                <div class="modal-action">
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn">Close</button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
     </main>
     <script src="index.js"></script>
 </body>

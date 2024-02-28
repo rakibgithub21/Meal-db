@@ -77,7 +77,11 @@ const loadMeal = async (id) => {
 }
 
 const showMeal = (meal) => {
-    console.log(meal);
+    const title = document.getElementById('title');
+    const description = document.getElementById('description');
+    description.innerText = meal.strInstructions;
+    title.innerText = meal.strMeal
+    showDetailsModal.showModal()
 }
 
 // loadMealBd()
