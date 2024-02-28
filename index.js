@@ -2,13 +2,16 @@ const loadMealBd = async (textId) => {
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${textId}`
     const res = await fetch(url);
     const data = await res.json();
+    console.log(data);
     displayMealBd(data.meals);
 }
 
 const displayMealBd = (meals) => {
+    console.log(meals);
 
-    if (meals.length === 0) {
-        showErrorMessage(true)
+    if (!meals) {
+        toggleLoader(false)
+       showErrorMessage(true)
     } else {
         showErrorMessage(false);
     }
