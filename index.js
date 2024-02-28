@@ -1,13 +1,20 @@
-const loadMealBd = async () => {
-    const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=fish`
+const loadMealBd = async (textId) => {
+    const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${textId}`
     const res = await fetch(url);
     const data = await res.json();
     displayMealBd(data.meals);
 }
 
 const displayMealBd = (meals) => {
-    const mealContainer = document.getElementById('meal-container');
 
+    if (meals.length === 0) {
+        showErrorMessage(true)
+    } else {
+        showErrorMessage(false);
+    }
+
+    const mealContainer = document.getElementById('meal-container');
+    mealContainer.innerHTML = ``;
     meals.forEach(meal => {
         console.log(meal);
         const div = document.createElement('div');
@@ -26,6 +33,36 @@ const displayMealBd = (meals) => {
         mealContainer.appendChild(div);
 
     });
+    
+    toggleLoader(false);
 }
 
-loadMealBd()
+
+const buttonHandler = () => {
+    toggleLoader(true);
+    const inputFieldContainer = document.getElementById('input-field');
+    const inputValue = inputFieldContainer.value;
+    loadMealBd(inputValue)
+}
+
+
+const toggleLoader = (isLoading) => {
+    const loaderContainer = document.getElementById('loader-container');
+    if (isLoading) {
+        loaderContainer.classList.remove('hidden');
+    } else {
+        loaderContainer.classList.add('hidden');
+    }
+}
+
+const showErrorMessage = (isError) => {
+    const errorContainer = document.getElementById('error-container');
+    if (isError) {
+        errorContainer.classList.remove('hidden');
+    }
+    else {
+        errorContainer.classList.add('hidden')
+    }
+}
+
+// loadMealBd()

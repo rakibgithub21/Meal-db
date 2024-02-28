@@ -31,14 +31,28 @@
                 favorite
                 dishes recipe</h1>
             <div class="text-center my-2">
-                <input type="text " placeholder="Search here"
+                <input type="text " id="input-field" placeholder="Search here"
                     class="input input-bordered w-full max-w-xs ring-1 ring-rose-500" />
-                <button class="btn text-rose-100 font-bold btn-outline border-0 ring-1 ring-yellow-400">Search</button>
+                <button onclick="buttonHandler()"
+                    class="btn text-rose-100 font-bold btn-outline border-0 ring-1 ring-yellow-400">Search</button>
             </div>
+
+
+
         </section>
+
+        <div id="error-container" class="hidden">
+            <h1 class="text-amber-400 text-2xl font-medium">No Result Found. Please Try Again.........</h1>
+        </div>
+
 
         <!-- search result section -->
         <section>
+            <!-- loader -->
+            <div id="loader-container" class="flex h-[50vh] items-center justify-center hidden">
+                <span class="loading loading-spinner text-warning"></span>
+            </div>
+            <!-- show result -->
             <div id="meal-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-20">
 
             </div>
